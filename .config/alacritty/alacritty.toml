@@ -1,0 +1,18 @@
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/hyper.toml"
+]
+live_config_reload = true
+
+[window]
+decorations = "Transparent"
+opacity = 0.8
+# blur = true
+padding = { x = 5, y = 25 }
+
+[font]
+normal = { family = "GohuFont uni14 Nerd Font Mono", style = "Regular" }
+size = 16 
+
+[colors.primary]
+# background = "#1e2930"
