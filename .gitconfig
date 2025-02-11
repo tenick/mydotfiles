@@ -1,0 +1,5 @@
+[user]
+	email = usareskenneth22@gmail.com
+	name = tenick
+[includeIf "gitdir:~/Github/work/"]
+    path = ~/Github/work/.gitconfig
