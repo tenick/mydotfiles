@@ -127,3 +127,8 @@ neofetch --ascii ~/.config/neofetch/ascii/sakamoto --ascii_colors 15 9 8
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init bash)"
 
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
