@@ -119,3 +119,7 @@ fi
 
 # dotfiles versioning
 alias mydotfiles='/usr/bin/git --git-dir=$HOME/.mydotfiles.git/ --work-tree=$HOME'
+
+# neofetch
+neofetch --ascii ~/.config/neofetch/ascii/sakamoto --ascii_colors 15 9 8
+
