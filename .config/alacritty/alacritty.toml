@@ -1,6 +1,6 @@
 [general]
 import = [
-    "~/.config/alacritty/themes/themes/hyper.toml"
+    "~/.config/alacritty/themes/themes/tokyo_night.toml"
 ]
 live_config_reload = true
 
@@ -12,7 +12,7 @@ padding = { x = 5, y = 25 }
 
 [font]
 normal = { family = "GohuFont uni14 Nerd Font Mono", style = "Regular" }
-size = 16 
+size = 14 
 
 [colors.primary]
 # background = "#1e2930"

@@ -123,3 +123,7 @@ alias mydotfiles='/usr/bin/git --git-dir=$HOME/.mydotfiles.git/ --work-tree=$HOM
 # neofetch
 neofetch --ascii ~/.config/neofetch/ascii/sakamoto --ascii_colors 15 9 8
 
+# starship
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init bash)"
+
