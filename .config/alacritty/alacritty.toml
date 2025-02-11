@@ -6,7 +6,7 @@ live_config_reload = true
 
 [window]
 decorations = "Transparent"
-opacity = 0.8
+opacity = 0.9
 # blur = true
 padding = { x = 5, y = 25 }
 
@@ -16,3 +16,6 @@ size = 14
 
 [colors.primary]
 # background = "#1e2930"
+
+[colors]
+transparent_background_colors = true
