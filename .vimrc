@@ -29,10 +29,6 @@ set expandtab             " use spaces instead of tabs
 set smarttab              " use tabs at the start of a line, spaces elsewhere
 set nowrap                " don't wrap text
 
-" backup files vim
-set backupdir=$TEMP//
-set directory=$TEMP//
-
 " clipboard mappings
 vnoremap <C-[> "+y
 
