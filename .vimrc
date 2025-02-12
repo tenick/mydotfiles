@@ -16,7 +16,8 @@ set number                " show line numbers
 set relativenumber
 set laststatus=2          " last window always has a statusline
 filetype indent on        " activates indenting for files
-set nohlsearch            " Don't continue to highlight searched phrases.
+" set nohlsearch            " Don't continue to highlight searched phrases.
+set hlsearch
 set incsearch             " But do highlight as you type your search.
 set ignorecase            " Make searches case-insensitive.
 set ruler                 " Always show info along bottom.
@@ -51,6 +52,9 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 let g:NERDTreeWinPos = "right"
+
+:let g:NERDTreeShowLineNumbers=1
+:autocmd BufEnter NERD_* setlocal rnu
 
 " fzf
 nnoremap <c-p> :Files<CR>
