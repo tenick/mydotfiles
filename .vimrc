@@ -3,6 +3,8 @@ call plug#begin()
     Plug 'hrsh7th/vim-vsnip'
     Plug 'hrsh7th/vim-vsnip-integ'
     Plug 'ghifarit53/tokyonight-vim'
+    Plug 'Yggdroot/indentLine'
+    Plug 'jeetsukumaran/vim-indentwise'
     Plug 'preservim/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'ryanoasis/vim-devicons'
@@ -44,6 +46,18 @@ vnoremap <C-c> "+y
 
 " Selection shortcuts mappings
 inoremap <C-a> <Esc>gg<S-v><S-g>
+
+" Indentwise
+map [- <Plug>(IndentWisePreviousLesserIndent)
+map [= <Plug>(IndentWisePreviousEqualIndent)
+map [+ <Plug>(IndentWisePreviousGreaterIndent)
+map ]- <Plug>(IndentWiseNextLesserIndent)
+map ]= <Plug>(IndentWiseNextEqualIndent)
+map ]+ <Plug>(IndentWiseNextGreaterIndent)
+map [_ <Plug>(IndentWisePreviousAbsoluteIndent)
+map ]_ <Plug>(IndentWiseNextAbsoluteIndent)
+map [% <Plug>(IndentWiseBlockScopeBoundaryBegin)
+map ]% <Plug>(IndentWiseBlockScopeBoundaryEnd)
 
 " color scheme setup
 " tokyonight for vim
