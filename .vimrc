@@ -1,21 +1,22 @@
 " plug
 call plug#begin()
-    Plug 'hrsh7th/vim-vsnip'
-    Plug 'hrsh7th/vim-vsnip-integ'
-    Plug 'ghifarit53/tokyonight-vim'
-    Plug 'Yggdroot/indentLine'
-    Plug 'jeetsukumaran/vim-indentwise'
-    Plug 'preservim/nerdtree'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'vim-airline/vim-airline'
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-    Plug 'prabirshrestha/vim-lsp'
-    Plug 'mattn/vim-lsp-settings'
-    Plug 'prabirshrestha/async.vim'
-    Plug 'prabirshrestha/asyncomplete.vim'
-    Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'rafamadriz/friendly-snippets'
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'Yggdroot/indentLine'
+Plug 'jeetsukumaran/vim-indentwise'
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+Plug 'vim-airline/vim-airline'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 call plug#end()
 
 set nocompatible          " get rid of Vi compatibility mode. SET FIRST!
@@ -46,6 +47,9 @@ vnoremap <C-c> "+y
 
 " Selection shortcuts mappings
 inoremap <C-a> <Esc>gg<S-v><S-g>
+
+" fix indentation mappings
+nnoremap <S-Tab> gg<S-v><S-g>=2<C-o>
 
 " Indentwise
 map [- <Plug>(IndentWisePreviousLesserIndent)
@@ -98,4 +102,9 @@ nnoremap <s-p> :HomeFiles<CR>
 "   \ foldexpr=lsp#ui#vim#folding#foldexpr()
 "   \ foldtext=lsp#ui#vim#folding#foldtext()
 let g:lsp_semantic_enabled = 1
+
+" vim-vsnip
+let g:vsnip_filetypes = {}
+let g:vsnip_filetypes.javascriptreact = ['javascript', 'html']
+let g:vsnip_filetypes.typescriptreact = ['typescript', 'html']
 
