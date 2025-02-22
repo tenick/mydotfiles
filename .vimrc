@@ -52,6 +52,14 @@ inoremap <C-a> <Esc>gg<S-v><S-g>
 " fix indentation mappings
 nnoremap <S-Tab> gg<S-v><S-g>=2<C-o>
 
+" terminal resizing
+nnoremap <C-Up> <C-w>+
+nnoremap <C-Down> <C-w>-
+nnoremap <C-Right> :vert res+1<CR>
+nnoremap <C-Left> :vert res-1<CR>
+
+set noequalalways
+
 " Indentwise
 map [- <Plug>(IndentWisePreviousLesserIndent)
 map [= <Plug>(IndentWisePreviousEqualIndent)
@@ -97,6 +105,7 @@ inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 nnoremap <c-p> :Files<CR>
 command! -bang HomeFiles call fzf#vim#files('~/', <bang>0) 
 nnoremap <s-p> :HomeFiles<CR>
+nnoremap <c-f> :Rg<CR>
 
 " vim-lsp
 " set foldmethod=expr
