@@ -44,7 +44,14 @@ set nowrap                " don't wrap text
 set encoding=UTF-8
 
 " clipboard mappings
-vnoremap <C-c> "+y
+function! ClipboardMapping()
+    if  exists("$WAYLAND_DISPLAY")
+        vnoremap <silent> <C-c> :w !wl-copy<CR><CR>
+    else
+        vnoremap <C-c> "+y
+    endif
+endfunction
+call ClipboardMapping()
 
 " Selection shortcuts mappings
 inoremap <C-a> <Esc>gg<S-v><S-g>

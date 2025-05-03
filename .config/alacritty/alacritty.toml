@@ -11,11 +11,11 @@ opacity = 0.9
 # padding = { x = 5, y = 25 }
 
 [font]
-normal = { family = "GohuFont uni14 Nerd Font Mono", style = "Regular" }
-size = 13 
+normal = { family = "DepartureMono Nerd Font Mono", style = "Regular" }
+size = 12 
 
 [colors.primary]
-# background = "#1e2930"
+background = "#000000"
 
 [colors]
 transparent_background_colors = true
