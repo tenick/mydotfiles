@@ -53,6 +53,20 @@ function! ClipboardMapping()
 endfunction
 call ClipboardMapping()
 
+" quickfix mappings
+nnoremap ]q :cnext<CR>
+nnoremap [q :cprev<CR>
+nnoremap [Q :cfirst<CR>
+nnoremap ]Q :clast<CR>
+nnoremap <leader>q :cclose<CR>
+
+" location list mappings
+nnoremap ]l :lnext<CR>
+nnoremap [l :lprev<CR>
+nnoremap [L :lfirst<CR>
+nnoremap ]L :llast<CR>
+nnoremap <leader>l :lclose<CR>
+
 " Selection shortcuts mappings
 inoremap <C-a> <Esc>gg<S-v><S-g>
 
@@ -115,10 +129,29 @@ nnoremap <s-p> :HomeFiles<CR>
 nnoremap <c-f> :Rg<CR>
 
 " vim-lsp
-" set foldmethod=expr
-"   \ foldexpr=lsp#ui#vim#folding#foldexpr()
-"   \ foldtext=lsp#ui#vim#folding#foldtext()
+set foldmethod=expr
+   \ foldexpr=lsp#ui#vim#folding#foldexpr()
+   \ foldtext=lsp#ui#vim#folding#foldtext()
 let g:lsp_semantic_enabled = 1
+
+" Scroll down in the LSP popup
+nnoremap <silent> <C-j> :call lsp#scroll(1)<CR>
+
+" Scroll up in the LSP popup
+nnoremap <silent> <C-k> :call lsp#scroll(-11)<CR>
+
+nnoremap K :LspHover<CR>
+
+nnoremap <silent> gd :LspDefinition<CR>
+nnoremap <silent> <C-]> :LspDefinition<CR>
+nnoremap <silent> gD :LspDeclaration<CR>
+nnoremap <silent> gr :LspReferences<CR>
+
+nnoremap <silent> <C-S-Up> :LspPreviousReference<CR>
+nnoremap <silent> <C-S-Down> :LspNextReference<CR>
+
+nnoremap <silent> <M-Up> :LspPreviousError<CR>
+nnoremap <silent> <M-Down> :LspNextError<CR>
 
 " vim-vsnip
 let g:vsnip_filetypes = {}

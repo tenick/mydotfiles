@@ -1,0 +1,8 @@
+{
+  "c++ 20 codeforces": {
+    "prefix": "cptmpl_cpp20",
+    "body": [
+      "${VIM:system('cat ~/Github/cp/Templates/template_gcc_cpp20.cpp')}"
+    ]
+  }
+}

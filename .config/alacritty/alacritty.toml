@@ -12,7 +12,7 @@ opacity = 0.9
 
 [font]
 normal = { family = "DepartureMono Nerd Font Mono", style = "Regular" }
-size = 12 
+size = 11 
 
 [colors.primary]
 background = "#000000"
