@@ -1,73 +1,85 @@
 format = """
-[░▒▓](#a3aed2)\
-[ 󰄛 ](bg:#a3aed2 fg:#090c0c)\
-[](bg:#769ff0 fg:#a3aed2)\
+[ ▚ ▀ ▄▌▚](#425563)\
+[ 󰄛 ](bg:#425563 fg:#80E0A7)\
+[](bg:#80E0A7 fg:#425563)\
 $directory\
-[](fg:#769ff0 bg:#394260)\
+[](fg:#80E0A7 bg:#7dd6e5)\
 $git_branch\
 $git_status\
-[](fg:#394260 bg:#212736)\
+[](fg:#7dd6e5 bg:#425563)\
 $time\
-[ ](fg:#1d2230)\
+[](fg:#425563)\
 $fill\
 $nodejs\
 $rust\
 $golang\
 $php\
 $python\
-[](fg:#212736 bg:#1d2230)\
-\n$character"""
-
+[▄▌▚](#425563)\
+\n$character
+"""
+ 
+# Directory module
 [directory]
-style = "bold fg:#000000 bg:#769ff0"
+style = "bold fg:#425563 bg:#80E0A7"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
-
 [directory.substitutions]
 "Documents" = "󰈙 "
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
-
+ 
+# Git branch
 [git_branch]
-symbol = ""
-style = "bg:#394260"
-format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
-
+symbol = ""
+style = "bg:#7dd6e5"
+format = '[[ $symbol $branch ](fg:#000000 bg:#7dd6e5)]($style)'
+ 
+# Git status
 [git_status]
-style = "bg:#394260"
-format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
-
-[nodejs]
-symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
-
-[rust]
-symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
-
-[golang]
-symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
-
-[php]
-symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
-
-[python]
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-
+style = "bg:#7dd6e5"
+format = '[[($all_status$ahead_behind )](fg:#000000 bg:#7dd6e5)]($style)'
+ 
+# Time
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#1d2230"
-format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
-
+time_format = "%R"
+style = "bg:#1e1e2e"
+format = '[[  $time ](fg:#80E0A7 bg:#425563)]($style)'
+ 
+# Fill
 [fill]
-symbol = '-'
-style = 'gray'
+symbol = "─"
+style = "fg:#425563"
+ 
+# NodeJS
+[nodejs]
+symbol = ""
+style = "bg:#425563"
+format = '[[ $symbol ($version) ](bg:#425563 fg:#80E0A7)]($style)'
+ 
+# Rust
+[rust]
+symbol = ""
+style = "bg:#1e1e2e"
+format = '[[ $symbol ($version) ](bg:#425563 fg:#80E0A7)]($style)'
+ 
+# Go
+[golang]
+symbol = ""
+style = "bg:#1e1e2e"
+format = '[[ $symbol ($version) ](bg:#425563 fg:#80E0A7)]($style)'
+ 
+# PHP
+[php]
+symbol = ""
+style = "bg:#1e1e2e"
+format = '[[ $symbol ($version) ](bg:#425563 fg:#80E0A7)]($style)'
+ 
+# Python
+[python]
+symbol = ""
+style = "fg:#8aadf4 bg:#1e1e2e"
+format = '[[ $symbol (${version}) ](bg:#425563 fg:#80E0A7)]($style)'

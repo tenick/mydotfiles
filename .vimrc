@@ -18,6 +18,12 @@ call plug#begin()
     Plug 'prabirshrestha/async.vim'
     Plug 'prabirshrestha/asyncomplete.vim'
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
+    Plug 'tpope/vim-fugitive'
+if has('nvim') || has('patch-8.0.902')
+    Plug 'mhinz/vim-signify'
+else
+    Plug 'mhinz/vim-signify', { 'tag': 'legacy' }
+endif
 call plug#end()
 
 set nocompatible          " get rid of Vi compatibility mode. SET FIRST!
@@ -44,9 +50,12 @@ set nowrap                " don't wrap text
 set encoding=UTF-8
 
 " clipboard mappings
+
 function! ClipboardMapping()
     if  exists("$WAYLAND_DISPLAY")
         vnoremap <silent> <C-c> :w !wl-copy<CR><CR>
+        vnoremap <C-c> y:call system('wl-copy', getreg('"'))<CR>
+
     else
         vnoremap <C-c> "+y
     endif
