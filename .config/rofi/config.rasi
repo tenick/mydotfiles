@@ -1,0 +1,7 @@
+
+//@theme "/usr/share/rofi/themes/docu.rasi"
+configuration {
+	show-icons: true;
+}
+
+@theme "/usr/share/rofi/themes/android_notification.rasi"
