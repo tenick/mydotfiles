@@ -39,5 +39,18 @@ Rectangle {
         repeat: true
         onTriggered: proc.running = true
     }
+
+    MouseArea {
+        anchors {
+            fill: parent
+        }
+        hoverEnabled: true
+        onEntered: {
+            root.color = "#425563"
+        }
+        onExited: {
+            root.color = "#00ffffff"
+        }
+    }
 }
 
