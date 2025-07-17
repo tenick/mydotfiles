@@ -36,6 +36,9 @@ vim.opt.shiftround = true       -- round indent to nearest tabstop
 -- colorscheme
 vim.cmd.colorscheme("blackhole")
 
+-- terminal mappings
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
+
 -- transparent bg for a color scheme (must come after setting the colorscheme)
 local transparent_groups = {
   "Normal", "NormalNC", "EndOfBuffer",
