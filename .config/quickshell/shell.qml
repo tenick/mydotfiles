@@ -214,7 +214,7 @@ ShellRoot {
                 // Day
                 LiveStat {
                     format: "{0}"
-                    command: ["sh", "-c", "date \"+%a %b\""]
+                    command: ["sh", "-c", "date \"+%a %b %d\""]
                     interval: 1000 
                 }
 
