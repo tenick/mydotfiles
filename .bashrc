@@ -46,3 +46,7 @@ export PATH="$PATH:/home/tenick/.local/bin"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - bash)"
+
+# LateX
+export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
+export INFOPATH="/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH"
