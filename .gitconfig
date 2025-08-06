@@ -3,3 +3,5 @@
 	name = tenick
 [includeIf "gitdir:~/Github/work/"]
     path = ~/Github/work/.gitconfig
+[core]
+	editor = nvim
