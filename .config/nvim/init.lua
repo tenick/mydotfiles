@@ -2,6 +2,9 @@
 require("config.lazy")
 
 -- BASIC SETTINGS
+vim.cmd("syntax enable")
+vim.cmd("filetype plugin indent on")
+
 -- Encoding
 vim.opt.encoding = "utf-8"
 

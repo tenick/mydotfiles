@@ -1,0 +1,8 @@
+set guioptions "none"
+set recolor "true"
+set default-bg rgba(37,42,54,0.7)
+set recolor-lightcolor rgba(0,0,0,0)
+set recolor-keephue "true"
+set adjust-open "width"
+set statusbar-h-padding 4
+set statusbar-v-padding 2

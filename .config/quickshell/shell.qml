@@ -10,7 +10,7 @@ import Quickshell.Services.Pipewire
 import Quickshell.Services.Notifications
 import Quickshell.Widgets
 import "LiveStat.qml"
-import "Notif.qml"
+//import "Notif.qml"
 
 
 ShellRoot {
@@ -179,6 +179,13 @@ ShellRoot {
 
                 // free | awk '/Mem:/ {printf "%.1f\n", $3/1024/1024}'
                 // top -bn1 | grep "Cpu(s)" | awk '{print 100 - $8}'
+
+                // Battery
+                LiveStat {
+                    format: " {0}%"
+                    command: ["sh", "-c", "cat /sys/class/power_supply/BAT0/capacity"]
+                    interval: 5000
+                }
 
                 // temp
                 LiveStat {
@@ -602,46 +609,46 @@ ShellRoot {
         }
     }
 
-    FloatingWindow {
-		// match the system theme background color
-		color: contentItem.palette.active.window
-        visible: false
-
-		ScrollView {
-			anchors.fill: parent
-			contentWidth: availableWidth
-
-			Column {
-				anchors.fill: parent
-				anchors.margins: 10
-
-				// get a list of nodes that output to the default sink
-				PwNodeLinkTracker {
-					id: linkTracker
-					node: Pipewire.defaultAudioSink
-				}
-
-				MixerEntry {
-					node: Pipewire.defaultAudioSink
-				}
-
-				Rectangle {
-					Layout.fillWidth: true
-					color: palette.active.text
-					implicitHeight: 1
-				}
-
-				Repeater {
-					model: linkTracker.linkGroups
-
-					MixerEntry {
-						required property PwLinkGroup modelData
-						// Each link group contains a source and a target.
-						// Since the target is the default sink, we want the source.
-						node: modelData.source
-					}
-				}
-			}
-		}
-	}
+	//    FloatingWindow {
+	// 	// match the system theme background color
+	// 	color: contentItem.palette.active.window
+	//        visible: false
+	//
+	// 	ScrollView {
+	// 		anchors.fill: parent
+	// 		contentWidth: availableWidth
+	//
+	// 		Column {
+	// 			anchors.fill: parent
+	// 			anchors.margins: 10
+	//
+	// 			// get a list of nodes that output to the default sink
+	// 			PwNodeLinkTracker {
+	// 				id: linkTracker
+	// 				node: Pipewire.defaultAudioSink
+	// 			}
+	//
+	// 			MixerEntry {
+	// 				node: Pipewire.defaultAudioSink
+	// 			}
+	//
+	// 			Rectangle {
+	// 				Layout.fillWidth: true
+	// 				color: palette.active.text
+	// 				implicitHeight: 1
+	// 			}
+	//
+	// 			Repeater {
+	// 				model: linkTracker.linkGroups
+	//
+	// 				MixerEntry {
+	// 					required property PwLinkGroup modelData
+	// 					// Each link group contains a source and a target.
+	// 					// Since the target is the default sink, we want the source.
+	// 					node: modelData.source
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
 }
