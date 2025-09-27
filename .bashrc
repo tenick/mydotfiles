@@ -19,11 +19,13 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# dotfiles versioning
-alias mydotfiles='/usr/bin/git --git-dir=$HOME/.mydotfiles.git/ --work-tree=$HOME'
-
 # git autocomplete
 . /usr/share/git/completion/git-completion.bash
+
+# dotfiles versioning
+DOTFILES_ALIAS="mydotfiles"
+alias $DOTFILES_ALIAS='/usr/bin/git --git-dir=$HOME/.mydotfiles.git/ --work-tree=$HOME'
+__git_complete $DOTFILES_ALIAS git
 
 # neofetch
 neofetch --ascii ~/.config/neofetch/ascii/sakamoto --ascii_colors 15 9 8
