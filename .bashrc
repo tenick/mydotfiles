@@ -22,6 +22,9 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # dotfiles versioning
 alias mydotfiles='/usr/bin/git --git-dir=$HOME/.mydotfiles.git/ --work-tree=$HOME'
 
+# git autocomplete
+. /usr/share/git/completion/git-completion.bash
+
 # neofetch
 neofetch --ascii ~/.config/neofetch/ascii/sakamoto --ascii_colors 15 9 8
 
