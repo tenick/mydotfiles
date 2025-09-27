@@ -66,7 +66,10 @@ vim.lsp.enable('cssls')
 vim.lsp.enable('html')
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-require("lspconfig").qmlls.setup({ capabilities = capabilities, cmd = {"qmlls", "-E"}})
+vim.lsp.config('qmlls', {
+    capabilities = capabilities,
+    cmd = {"qmlls", "-E"}
+})
 
 -- enable folding
 vim.opt.foldmethod = "expr"
