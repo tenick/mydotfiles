@@ -6,44 +6,45 @@ return {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
-            "hrsh7th/vim-vsnip",
-            "hrsh7th/cmp-vsnip",
+            "SirVer/ultisnips",
+            "quangnguyen30192/cmp-nvim-ultisnips"
         },
         config = function()
             local cmp = require("cmp")
+            local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
             cmp.setup({
                 snippet = {
                     expand = function(args)
-                        vim.fn["vsnip#anonymous"](args.body)
+                        vim.fn["UltiSnips#Anon"](args.body)
                     end,
                 },
-                mapping = cmp.mapping.preset.insert({
-                    ["<C-Space>"] = cmp.mapping.complete(),
-                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
-                    -- Tab to select next item
-                    ["<Tab>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            cmp.select_next_item()
-                        else
-                            fallback()
-                        end
-                    end, { "i", "s" }),
+                sources = cmp.config.sources({
+                        { name = "ultisnips" },
+                        { name = "nvim_lsp" },
+                    }, {
+                        { name = "buffer" },
+                    }
+                ),
+                mapping = cmp.mapping.preset.insert({ 
+                    ["<C-Space>"] = cmp.mapping.complete(), 
+                    ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Tab to select next item
+                    ["<Tab>"] = cmp.mapping(function(fallback) 
+                        if cmp.visible() then 
+                            cmp.select_next_item() 
+                        else 
+                            fallback() 
+                        end 
+                    end, { "i", "s" }), 
 
                     -- Shift-Tab to select previous item
                     ["<S-Tab>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            cmp.select_prev_item()
-                        else
-                            fallback()
-                        end
-                    end, { "i", "s" }),
+                        if cmp.visible() then 
+                            cmp.select_prev_item() 
+                        else 
+                            fallback() 
+                        end 
+                    end, { "i", "s" }), 
                 }),
-                sources = cmp.config.sources({
-                    { name = "nvim_lsp" },
-                    { name = "vsnip" },
-                }, {
-                        { name = "buffer" },
-                    }),
             })
 
             cmp.setup.cmdline("/", {
@@ -58,8 +59,8 @@ return {
                 sources = cmp.config.sources({
                     { name = "path" },
                 }, {
-                        { name = "cmdline" },
-                    }),
+                    { name = "cmdline" },
+                }),
             })
         end,
     },
