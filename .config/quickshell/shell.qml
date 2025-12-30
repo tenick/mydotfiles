@@ -505,12 +505,21 @@ ShellRoot {
                                         onValueChanged: {
                                             console.log(brightnessSlider.value, Math.round(brightnessSlider.value * 100))
                                             brightnessSlider.enabled = false
-                                            brightnessProc.command = ["sh", "-c", "ddcutil setvcp 10 " + Math.round(brightnessSlider.value * 100)]
+                                            brightnessProc.command = [
+                                                "sh",
+                                                "-c",
+                                                `
+                                                ct=$(cat /sys/class/dmi/id/chassis_type 2>/dev/null || echo 0)
+                                                if [ "$ct" = "3" ]; then
+                                                ddcutil setvcp 10 ${Math.round(brightnessSlider.value * 100)}
+                                                else
+                                                brightnessctl s ${Math.round(brightnessSlider.value * 100)}%
+                                                fi
+                                                `]
                                             brightnessProc.running = true
                                         }
                                         Process {
                                             id: brightnessProc
-                                            command: ["sh", "-c", "ddcutil setvcp 10 " + Math.round(brightnessSlider.value * 100)]
                                             running: false
                                             onExited: {
                                                 brightnessSlider.enabled = true;

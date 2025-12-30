@@ -64,6 +64,7 @@ vim.lsp.enable('jdtls')
 vim.lsp.enable('ts_ls')
 vim.lsp.enable('cssls')
 vim.lsp.enable('html')
+vim.lsp.enable('pylsp')
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 vim.lsp.config('qmlls', {
