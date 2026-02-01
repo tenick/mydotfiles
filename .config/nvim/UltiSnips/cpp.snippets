@@ -1,0 +1,85 @@
+# -*- mode: snippet -*-
+# file: cpp.snippets
+
+global !p
+import os
+
+home_path = os.path.expanduser('~')
+github_path = os.path.join(home_path, 'Github')
+
+def get_dsa(dsa_name):
+	dsa_path = os.path.join(github_path, 'cp', 'Templates', 'dsa.cpp')
+	with open(dsa_path) as f:
+		lines = f.readlines()
+
+	# Find the block
+	start, end = None, None
+	for i, line in enumerate(lines):
+		if f"// BEGIN: {dsa_name}" in line:
+			start = i + 1
+		if f"// END: {dsa_name}" in line:
+			end = i
+			break
+
+	if start is not None and end is not None:
+		return "".join(lines[start:end])
+	else:
+		return f"// Block '{dsa_name}' not found"
+endglobal
+
+snippet main "main function" b
+int main() {
+	$0
+	return 0;
+}
+endsnippet
+
+snippet fori "for loop with index i" b
+for (int i = 0; i < ${1:N}; i++) {
+	$0
+}
+endsnippet
+
+snippet cp_template "Insert CP Template" b
+`!p
+template_file_path = os.path.join(github_path, 'cp', 'Templates', 'template_gcc_cpp20.cpp')
+with open(template_file_path) as f:
+	snip.rv	= f.read()
+`
+endsnippet
+
+snippet cp_pbds "Insert Policy-Based Data Structure" b
+`!p
+snip.rv = get_dsa('pbds')
+`
+endsnippet
+
+snippet cp_dsu "Insert Disjoint Set Union" b
+`!p
+snip.rv = get_dsa('dsu')
+`
+endsnippet
+
+snippet cp_sparsetable "Insert Sparse Table" b
+`!p
+snip.rv = get_dsa('sparse')
+`
+endsnippet
+
+snippet cp_segtree "Insert Segment Tree" b
+`!p
+snip.rv = get_dsa('segtree')
+`
+endsnippet
+
+snippet cp_binpow "Insert Binary Exponentiation" b
+`!p
+snip.rv = get_dsa('binpow')
+`
+endsnippet
+
+snippet cp_fenwick "Insert Fenwick Tree" b
+`!p
+snip.rv = get_dsa('fenwick_tree')
+`
+endsnippet

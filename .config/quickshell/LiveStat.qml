@@ -1,6 +1,6 @@
-import QtQuick // for Text
-import Quickshell // for PanelWindow
-import Quickshell.Io // for Process
+import QtQuick
+import Quickshell
+import Quickshell.Io
 
 Rectangle {
     id: root
